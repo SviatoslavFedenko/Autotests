@@ -1,0 +1,11 @@
+describe('My Test Suite', () => {
+  it('should visit the EPAM website and perform some actions', () => {
+    cy.viewport(1280, 800);
+    cy.visit('https://www.epam.com/');
+    cy.title().should('eq', 'EPAM | Software Engineering & Product Development Services');
+    cy.get('.theme-switcher').should('exist');
+    cy.get('.theme-switcher').click();
+    cy.get('body').should('have.class', 'dark-mode');
+    cy.get('.cat').click();
+  });
+});
